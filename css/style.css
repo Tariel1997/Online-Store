@@ -1,2 +1,97 @@
 @import './reset.css';
 
+
+body {
+    font-family: "DM Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #99ffad;
+    background-size: 150% 150%;
+    background-image:
+        radial-gradient(at 89% 28%, hsla(286, 76%, 71%, 1) 0px, transparent 50%),
+        radial-gradient(at 21% 17%, hsla(282, 90%, 60%, 1) 0px, transparent 50%),
+        radial-gradient(at 35% 47%, hsla(128, 74%, 79%, 1) 0px, transparent 50%),
+        radial-gradient(at 82% 25%, hsla(3, 93%, 76%, 1) 0px, transparent 50%),
+        radial-gradient(at 11% 91%, hsla(257, 85%, 67%, 1) 0px, transparent 50%),
+        radial-gradient(at 87% 61%, hsla(106, 84%, 76%, 1) 0px, transparent 50%),
+        radial-gradient(at 35% 86%, hsla(126, 87%, 70%, 1) 0px, transparent 50%);
+
+        animation: gradientShift 5s ease infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+p {
+    font-family: "Dancing Script", cursive;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    background: #AA076B;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #61045F, #AA076B);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #61045F, #AA076B);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+input {
+    font-size: 15px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #AA076B;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #61045F, #AA076B);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #61045F, #AA076B);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: filter 0.2s ease-in-out;
+}
+
+button:hover {
+    filter: brightness(125%);
+}
+
+button:active {
+    filter: brightness(110%);
+}
+
+#message {
+    margin-top: 15px;
+    text-align: center;
+}
