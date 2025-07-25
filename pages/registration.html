@@ -10,8 +10,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js"></script>
+    <link rel="stylesheet" href="./../css/style.css">
+    <script src="./../js/registration.js" defer></script>
 </head>
 
 <body>
@@ -24,8 +24,17 @@
         <input type="email" id="email" placeholder="Email" required>
         <input type="password" id="password" placeholder="Password" required>
         <input type="number" id="age" placeholder="Age" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="text" id="zip" placeholder="Zip code" required>
+        <input type="text" id="phone" placeholder="Phone" required>
+        <input type="text" id="avatar" placeholder="Avatar link" required>
+        <select id="gender">
+            <option selected disabled>Select gender</option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+        </select>
 
-        <button type="submit">Registration</button>
+        <button type="submit">Sign Up</button>
 
         <div id="message"></div>
 

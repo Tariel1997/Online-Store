@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastName = document.getElementById('lastName').value
         const email = document.getElementById('email').value
         const age = parseInt(document.getElementById('age').value, 10)
+        const address = document.getElementById('address').value
+        const zip = document.getElementById('zip').value
+        const phone = document.getElementById('phone').value
+        const avatar = document.getElementById('avatar').value
+        const gender = document.getElementById('gender').value
+        const password = document.getElementById('password').value
 
         const userData = {
             firstName: firstName,
@@ -16,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             email: email,
             password: password,
             age: age,
-            address: "N/A",
-            phone: "+995568777498",
-            zipcode: "N/A",
-            avatar: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
-            gender: "MALE"
+            address: address,
+            phone: phone,
+            zipcode: zip,
+            avatar: avatar,
+            gender: gender
         }
 
         const apiUrl = 'https://api.everrest.educata.dev/auth/sign_up'
