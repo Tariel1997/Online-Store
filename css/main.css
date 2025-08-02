@@ -1,0 +1,166 @@
+@import './reset.css';
+
+.gradient {
+    min-height: 100vh;
+    width: 100%;
+    background-color: hsla(240, 100%, 80%, 0.74);
+    background-image:
+    radial-gradient(at 84% 2%, hsla(0, 32%, 57%, 1) 0px, transparent 50%),
+    radial-gradient(at 29% 25%, hsla(315, 60%, 63%, 1) 0px, transparent 50%),
+    radial-gradient(at 76% 23%, hsla(39, 95%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 4% 38%, hsla(266, 17%, 65%, 0.16) 0px, transparent 50%),
+    radial-gradient(at 83% 48%, hsla(201, 70%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 60% 98%, hsla(304, 94%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 57% 50%, hsla(231, 98%, 67%, 1) 0px, transparent 50%);
+    position: relative;
+}
+
+header nav {
+    background-color: #232F3E;
+    height: 60px;
+    padding: 20px 0px;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    z-index: 999;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    right: 35px;
+}
+
+header li {
+    list-style-type: none;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+}
+
+header a {
+    color: white;
+}
+
+header li button {
+    padding: 10px 20px;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.left-header {
+    width: 18px;
+    font-size: 18px;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    left: 30px;
+}
+
+.search-block {
+    display: flex;
+    width: 60%;
+}
+
+input, button {
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #F90;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
+}
+
+.search-button {
+    border-radius: 0px 5px 5px 0px;
+    background-color: #F90;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+#products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 100px;
+    font-family: "Raleway", sans-serif;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+}
+
+.product-rating {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.cart-price-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    align-self: flex-end; 
+    width: 100%;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: #007bff;
+    margin: 0;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
