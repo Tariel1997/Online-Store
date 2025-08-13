@@ -50,6 +50,54 @@
 
     </header>
 
+    <div id="filter-dropdown" class="filter-container">
+        <div class="filter-form">
+            <form onsubmit="filterData(event)">
+                <div class="form-row">
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="keyword">Keyword</label>
+                            <input type="text" placeholder="Keyword" id="keyword" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="category">category</label>
+                            <select id="category" class="form-select"></select>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="brand">brand</label>
+                            <input type="text" placeholder="Brand" id="brand" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="rating">rating</label>
+                            <input type="text" placeholder="Rating" id="rating" class="form-control" value="1">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="priceFrom">Price min</label>
+                            <input type="text" placeholder="Price from" id="priceFrom" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-group">
+                            <label for="priceTo">Price max</label>
+                            <input type="text" placeholder="Price to" id="priceTo" class="form-control" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button type="submit" class="btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div id="products-container">
 
     </div>
