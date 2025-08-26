@@ -45,7 +45,18 @@ header li {
 }
 
 header a {
+    display: inline-block;
     color: white;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+header a:hover {
+    color: #F90;
+}
+
+header a:active {
+    color: #E08700;
+    transform: translateY(1px) scale(0.95);
 }
 
 header li button {
@@ -171,18 +182,38 @@ input {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
+.btn-secondary {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #007bff;
     border: 1px solid #007bff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
+    height: 60px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     line-height: 1.5;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-
-    width: auto;
 }
 
 .btn-primary:hover {
@@ -276,7 +307,10 @@ input {
 }
 
 .btn {
-    padding: 10px 15px;
+    padding: 10px 10px;
+    line-height: normal;
+    text-align: center;
+    width: auto;
     background-color: #007bff;
     color: white;
     text-decoration: none;
