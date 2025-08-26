@@ -1,70 +1,3 @@
-// const productsContainer = document.getElementById('products-container');
-// const apiUrl = 'https://api.everrest.educata.dev/shop/products/all?page_index=1&page_size=50';
-
-// function createProductCard(product) {
-//     const card = document.createElement('div');
-//     card.classList.add('card');
-
-//     const imageUrl = `${product.thumbnail}`;
-//     const price = product.price ? product.price.current : 'N/A';
-//     const currency = product.price ? product.price.currency : '';
-//     const rating = product.rating ? product.rating.toFixed(2) : 'N/A';
-//     const title = product.title || 'No Title';
-
-//     card.innerHTML = `
-//         <img src="${imageUrl}" alt="Product image">
-//         <div class="card-body">
-//             <h5 class="product-name">${title}</h5>
-//             <p class="product-rating">Rating: ${rating}</p>
-//         </div>
-//         <div class="cart-price-btn">
-//             <h5 class="price">${price} ${currency}</h5>
-//             <a href="#" class="btn btn-primary">Add to cart</a>
-//         </div>
-//     `;
-//     return card;
-// }
-
-
-// async function fetchProducts() {
-//     try {
-//         const response = await axios.get(apiUrl);
-//         const products = response.data.products;
-
-//         if (products && products.length > 0) {
-//             products.forEach(product => {
-//                 if (product.thumbnail) {
-//                     const card = createProductCard(product);
-//                     productsContainer.appendChild(card);
-//                 }
-//             });
-//         } else {
-//             productsContainer.innerHTML = '<p>პროდუქტი ვერ მოიძებნა.</p>';
-//         }
-//     } catch (error) {
-//         console.error('მოთხოვნისას შეცდომა მოხდა:', error);
-//         if (productsContainer) {
-//             productsContainer.innerHTML = '<p>მონაცემების მიღებისას შეცდომა მოხდა.</p>';
-//         }
-//     }
-// }
-
-// fetchProducts();
-
-
-
-
-// const categoriesLink = document.querySelector('nav ul li a[href=""]')
-// const filterDropdown = document.getElementById('filter-dropdown')
-
-// categoriesLink.addEventListener('click', function(event) {
-//      event.preventDefault()
-//      filterDropdown.classList.toggle('show')
-// })
-
-
-
-
 const productsContainer = document.getElementById("products-container");
 const apiUrl =
   "https://api.everrest.educata.dev/shop/products/all?page_index=1&page_size=50";
@@ -79,6 +12,47 @@ function createProductCard(product) {
   const currency = product.price ? product.price.currency : "";
   const rating = product.rating ? product.rating.toFixed(2) : "N/A";
   const title = product.title || "No Title";
+  const productId = product._id;
+
+  async function addToCart(productId) {
+    try {
+        const accessToken = localStorage.getItem('accessToken');
+
+        if (!accessToken) {
+            alert("Please log in to add the product to your cart.");
+            return;
+        }
+
+        const response = await axios.patch(
+            "https://api.everrest.educata.dev/shop/cart/product",
+            {
+                id: productId,
+                quantity: 1
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            }
+        );
+
+        console.log("Product successfully added to cart:", response.data);
+        alert("Product is in cart!");
+
+    } catch (error) {
+        console.error("An error occurred while adding to cart:", error);
+        
+        if (error.response && error.response.data.errorKeys.includes("errors.not_enough_stock_to_purchase")) {
+            alert("Sorry, this product is currently out of stock.");
+        } 
+        else if (error.response && error.response.status === 401) {
+            alert("Your session has expired. Please log in again.");
+        } 
+        else {
+            alert("Unable to add product to cart. Please try again later.");
+        }
+    }
+}
 
   card.innerHTML = `
         <img src="${imageUrl}" class="card-img-top" alt="Product image">
@@ -88,9 +62,17 @@ function createProductCard(product) {
         </div>
         <div class="cart-price-btn">
             <h5 class="price">${price} ${currency}</h5>
-            <a href="#" class="btn btn-primary">Add to cart</a>
+            <a href="#" class="btn btn-primary add-to-cart-btn" data-product-id="${productId}">Add to cart</a>
         </div>
     `;
+    
+    const addToCartButton = card.querySelector(".add-to-cart-btn");
+    addToCartButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const productId = event.target.dataset.productId;
+        addToCart(productId);
+    });
+
   return card;
 }
 
@@ -105,7 +87,7 @@ function renderProducts(productsToRender) {
       }
     });
   } else {
-    productsContainer.innerHTML = "<p>პროდუქტი ვერ მოიძებნა.</p>";
+    productsContainer.innerHTML = "<p>Product not found.</p>";
   }
 }
 
@@ -114,8 +96,8 @@ async function fetchAllProducts() {
     const response = await axios.get(apiUrl);
     renderProducts(response.data.products);
   } catch (error) {
-    console.error("მოთხოვნისას შეცდომა მოხდა:", error);
-    productsContainer.innerHTML = "<p>მონაცემების მიღებისას შეცდომა მოხდა.</p>";
+    console.error("An error occurred while requesting:", error);
+    productsContainer.innerHTML = "<p>An error occurred while retrieving data.</p>";
   }
 }
 
@@ -133,7 +115,7 @@ async function fetchCategories() {
       select.appendChild(option);
     });
   } catch (error) {
-    console.error("კატეგორიების მიღებისას შეცდომა მოხდა:", error);
+    console.error("An error occurred while retrieving categories:", error);
   }
 }
 
@@ -162,9 +144,9 @@ async function filterData(event) {
     const response = await axios.get(searchString);
     renderProducts(response.data.products);
   } catch (err) {
-    console.error("ფილტრაციის მოთხოვნისას შეცდომა მოხდა:", err);
+    console.error("An error occurred while requesting filtering:", err);
     productsContainer.innerHTML =
-      "<p>მოცემული კრიტერიუმებით პროდუქტები ვერ მოიძებნა.</p>";
+      "<p>No products were found with the given criteria.</p>";
   }
 }
 
