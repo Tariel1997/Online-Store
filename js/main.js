@@ -62,7 +62,10 @@ function createProductCard(product) {
         </div>
         <div class="cart-price-btn">
             <h5 class="price">${price} ${currency}</h5>
+            <div class="btn-container">
             <a href="#" class="btn btn-primary add-to-cart-btn" data-product-id="${productId}">Add to cart</a>
+            <a href="details.html?id=${productId}" class="btn btn-secondary">Product Details</a>
+            </div>
         </div>
     `;
     
