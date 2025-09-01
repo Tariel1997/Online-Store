@@ -1,5 +1,9 @@
 @import './reset.css';
 
+body {
+    font-family: "Raleway", sans-serif;
+}
+
 .gradient {
     min-height: 100vh;
     width: 100%;
@@ -41,7 +45,6 @@ header ul {
 header li {
     list-style-type: none;
     font-size: 14px;
-    font-family: "Raleway", sans-serif;
 }
 
 header a {
@@ -70,7 +73,6 @@ header li button {
 .left-header {
     width: 18px;
     font-size: 18px;
-    font-family: "Raleway", sans-serif;
     position: relative;
     left: 30px;
 }
@@ -120,7 +122,6 @@ input {
 }
 
 .filter-form {
-    font-family: "Raleway", sans-serif;
     background-color: transparent;
     border: 1px solid #dee2e6;
     border-radius: 0.25rem;
@@ -186,7 +187,6 @@ input {
     color: #007bff;
     background-color: transparent;
     border: 1px solid #007bff;
-    height: 60px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
@@ -208,7 +208,6 @@ input {
     color: #fff;
     background-color: #007bff;
     border: 1px solid #007bff;
-    height: 60px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
@@ -251,7 +250,6 @@ input {
     column-gap: 20px;
     padding: 20px;
     margin-top: 100px;
-    font-family: "Raleway", sans-serif;
 }
 
 .card {
@@ -320,4 +318,139 @@ input {
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+
+/* Details Page Styles */
+
+.details-container {
+    max-width: 900px;
+    margin: 100px auto 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-header {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.product-header img {
+    max-width: 400px;
+    height: 280px;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.product-info .btn {
+    margin-top: 20px;
+}
+
+/* Tabs styles */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-top: 30px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: #000;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Review styles */
+.review-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.rating-stars {
+    color: #aaa;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+#modal-submit-rating-btn {
+    margin-top: 20px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
