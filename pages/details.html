@@ -48,9 +48,23 @@
 
     </header>
 
-    <main id="product-details-container">
-
+    <main id="product-details-container" class="details-container">
     </main>
+
+    <div id="rating-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Rate this Product</h3>
+            <div id="modal-rating-stars" class="rating-stars">
+                <i class="fa fa-star" data-value="1"></i>
+                <i class="fa fa-star" data-value="2"></i>
+                <i class="fa fa-star" data-value="3"></i>
+                <i class="fa fa-star" data-value="4"></i>
+                <i class="fa fa-star" data-value="5"></i>
+            </div>
+            <button id="modal-submit-rating-btn" class="btn btn-primary">OK</button>
+        </div>
+    </div>
 
 
 </body>
