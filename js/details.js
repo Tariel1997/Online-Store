@@ -1,4 +1,3 @@
-// Function to add a product to the cart
 async function addToCart(productId) {
   try {
     const accessToken = localStorage.getItem("accessToken")
@@ -32,7 +31,7 @@ async function addToCart(productId) {
   }
 }
 
-// Function to create star ratings HTML
+
 function createStarRating(ratingValue) {
   const fullStars = Math.floor(ratingValue)
   const halfStar = ratingValue % 1 !== 0
@@ -47,7 +46,7 @@ function createStarRating(ratingValue) {
   return stars
 }
 
-// Global function to switch tabs
+
 window.showTab = function (tabId, button) {
   document
     .querySelectorAll(".tab-button")
@@ -59,7 +58,7 @@ window.showTab = function (tabId, button) {
   document.getElementById(tabId).classList.add("active")
 }
 
-// Function to submit a rating
+
 async function submitRating(productId, rate) {
   try {
     const accessToken = localStorage.getItem("accessToken")
@@ -87,7 +86,7 @@ async function submitRating(productId, rate) {
   }
 }
 
-// Function to set up all event listeners after content is rendered
+
 function setupEventListeners(product) {
   const addToCartBtn = document.getElementById("add-to-cart-btn")
   if (addToCartBtn) {
@@ -146,7 +145,7 @@ function setupEventListeners(product) {
   }
 }
 
-// Function to display product details on the page
+
 function displayProductDetails(product) {
   const container = document.getElementById("product-details-container")
 
@@ -212,11 +211,10 @@ function displayProductDetails(product) {
         ${tabsHtml}
     `
 
-  // Call the function to set up event listeners after rendering
   setupEventListeners(product)
 }
 
-// Main function to fetch product details from the API
+
 async function fetchProductDetails(id) {
   const container = document.getElementById("product-details-container")
   const apiUrl = `https://api.everrest.educata.dev/shop/products/id/${id}`

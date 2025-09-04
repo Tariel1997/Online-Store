@@ -210,7 +210,6 @@ async function updateQuantity(productId, newQuantity) {
     )
     console.log("Quantity updated successfully:", response.data)
 
-    // After a successful update, re-fetch and display the entire cart
     await fetchCartData()
   } catch (error) {
     console.error("Failed to update quantity:", error)
