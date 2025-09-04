@@ -1,3 +1,3 @@
 function redirectToCart() {
-    window.location.href = 'cart.html';
+  window.location.href = "cart.html"
 }
